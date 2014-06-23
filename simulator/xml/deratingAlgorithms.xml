@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<!DOCTYPE simulator [
+<!ATTLIST algorithm id ID #IMPLIED>
+<!ATTLIST problem id ID #IMPLIED>
+<!ATTLIST measurements id ID #IMPLIED>
+]>
+<simulator>
+    <algorithms>
+        <algorithm id="deratingNichePSO" class="niching.NichingAlgorithm">
+            <addStoppingCondition class="stoppingcondition.MeasuredStoppingCondition" target="25000">
+                <predicate class="stoppingcondition.Maximum"/>
+                <measurement class="measurement.single.ParticlePositionUpdates"/>
+            </addStoppingCondition>
+
+            <!-- need a regular pso -->
+            <mainSwarm class="pso.PSO">
+                <addStoppingCondition class="stoppingcondition.MeasuredStoppingCondition" target="0">
+                    <predicate class="stoppingcondition.Minimum"/>
+                    <measurement class="measurement.single.SwarmSize"/>
+                </addStoppingCondition>
+                <addStoppingCondition class="stoppingcondition.MeasuredStoppingCondition" target="500">
+                    <predicate class="stoppingcondition.Maximum"/>
+                    <measurement class="measurement.generic.Iterations"/>
+                </addStoppingCondition>
+
+                <initialisationStrategy class="algorithm.initialisation.ClonedPopulationInitialisationStrategy">
+                    <entityType class="pso.particle.StandardParticle">
+		      <behaviour class="pso.behaviour.StandardParticleBehaviour">
+                        <velocityProvider class="pso.velocityprovider.StandardVelocityProvider">
+                            <socialAcceleration class="controlparameter.ConstantControlParameter" parameter="0.0"/>
+                            <cognitiveAcceleration class="controlparameter.ConstantControlParameter" parameter="1.2"/>
+                        </velocityProvider>
+		      </behaviour>
+                        <velocityInitialisationStrategy class="entity.initialisation.RandomInitialisationStrategy"/>
+                    </entityType>
+                    <entityNumber value="50"/>
+                </initialisationStrategy>
+
+                <iterationStrategy class="pso.iterationstrategies.SynchronousIterationStrategy">
+                    <boundaryConstraint class="problem.boundaryconstraint.ReinitialisationBoundary"/>
+                </iterationStrategy>
+            </mainSwarm>
+
+            <!-- Set the subswarm type and behavior here -->
+            <nicheCreator class="niching.creation.ClosestNeighbourNicheCreationStrategy">
+                <swarmType class="pso.PSO">
+                    <addStoppingCondition class="stoppingcondition.OptimiserStalled"/>
+                    <iterationStrategy class="pso.iterationstrategies.SynchronousIterationStrategy">
+                        <boundaryConstraint class="problem.boundaryconstraint.ReinitialisationBoundary"/>
+                    </iterationStrategy>
+                </swarmType>
+
+                <swarmBehavior class="pso.behaviour.StandardParticleBehaviour">
+                    <velocityProvider class="pso.velocityprovider.GCVelocityProvider">
+                        <rho class="controlparameter.ConstantControlParameter" parameter="0.02"/>
+                        <delegate class="pso.velocityprovider.StandardVelocityProvider">
+                            <cognitiveAcceleration class="controlparameter.ConstantControlParameter" parameter="1.2"/>
+                            <socialAcceleration class="controlparameter.ConstantControlParameter" parameter="1.2"/>
+                            <inertiaWeight class="controlparameter.LinearlyVaryingControlParameter" initialValue="0.7" finalValue="0.2"/>
+                        </delegate>
+                    </velocityProvider>
+                </swarmBehavior>
+            </nicheCreator>
+
+            <nicheDetector class="niching.creation.MaintainedFitnessNicheDetection">
+                <threshold class="controlparameter.ConstantControlParameter" parameter="1.0E-3"/>
+                <stationaryCounter class="controlparameter.ConstantControlParameter" parameter="3.0"/>
+            </nicheDetector>
+
+            <mergeDetector class="niching.merging.detection.RadiusOverlapMergeDetection">
+                <threshold class="controlparameter.ConstantControlParameter" parameter="1.0E-12"/>
+            </mergeDetector>
+
+            <absorptionDetector class="niching.merging.detection.RadiusOverlapMergeDetection">
+                <threshold class="controlparameter.ConstantControlParameter" parameter="1.0E-12"/>
+            </absorptionDetector>
+
+            <mainSwarmMerger class="niching.merging.SingleSwarmMergeStrategy"/>
+            <mainSwarmAbsorber class="niching.merging.SingleSwarmMergeStrategy"/>
+            <mainSwarmCreationMerger class="niching.merging.SingleSwarmMergeStrategy"/>
+
+            <subSwarmMerger class="niching.merging.StandardMergeStrategy"/>
+            <subSwarmAbsorber class="niching.merging.StandardMergeStrategy"/>
+
+            <subSwarmIterator class="niching.iterators.AllSwarmsIterator">
+                <iterator class="niching.iterators.IfNotFinishedSingleNicheIteration"/>
+            </subSwarmIterator>
+
+            <mainSwarmIterator class="niching.iterators.SingleNicheIteration"/>
+
+            <iterationStrategy class="niching.iterationstrategies.DeratingNichePSO"/>
+        </algorithm>
+
+        <algorithm id="SNT-PSO" class="niching.SequentialNichingTechnique">
+            <addStoppingCondition class="stoppingcondition.MeasuredStoppingCondition" target="10"/>
+
+            <algorithm class="pso.PSO">
+                <addStoppingCondition class="stoppingcondition.MeasuredStoppingCondition" target="500"/>
+            </algorithm>
+        </algorithm>
+
+        <algorithm id="SNT-GA" class="niching.SequentialNichingTechnique">
+            <addStoppingCondition class="stoppingcondition.MeasuredStoppingCondition" target="10"/>
+
+            <algorithm class="ec.EC">
+                <addStoppingCondition class="stoppingcondition.MeasuredStoppingCondition" target="500"/>
+            </algorithm>
+        </algorithm>
+    </algorithms>
+
+    <problems>
+        <problem id="f1" class="problem.DeratingOptimisationProblem" domain="R(0:1)">
+            <objective class="problem.objective.Maximise"/>
+            <function class="functions.continuous.unconstrained.EqualMaxima"/>
+            <deratingFunction class="functions.continuous.derating.PowerDeratingFunction">
+                <radius class="controlparameter.ConstantControlParameter" parameter="0.01"/>
+                <alpha class="controlparameter.ConstantControlParameter" parameter="0.8"/>
+            </deratingFunction>
+        </problem>
+    </problems>
+
+    <measurements id="fitness" class="simulator.MeasurementSuite" resolution="1">
+        <addMeasurement class="measurement.single.ParticlePositionUpdates"/>
+	<addMeasurement class="measurement.multiple.MultipleSolutions"/>
+        <addMeasurement class="measurement.multiple.MultipleFitness"/>
+    </measurements>
+
+    <simulations>
+        <simulation samples="1">
+            <algorithm idref="deratingNichePSO"/>
+            <problem idref="f1"/>
+            <measurements idref="fitness" />
+            <output format="TXT" file="data/deratingNichePSO-f1.txt"/>
+        </simulation>
+
+	<simulation samples="1">
+            <algorithm idref="SNT-GA"/>
+            <problem idref="f1"/>
+            <measurements idref="fitness" />
+            <output format="TXT" file="data/SNT-GA-f1.txt"/>
+        </simulation>
+
+	<simulation samples="1">
+            <algorithm idref="SNT-PSO"/>
+            <problem idref="f1"/>
+            <measurements idref="fitness" />
+            <output format="TXT" file="data/SNT-PSO-f1.txt"/>
+        </simulation>
+    </simulations>
+</simulator>

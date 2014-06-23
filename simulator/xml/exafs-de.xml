@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<!DOCTYPE simulator [
+<!ATTLIST algorithm id ID #IMPLIED>
+<!ATTLIST problem id ID #IMPLIED>
+<!ATTLIST measurements id ID #IMPLIED>
+]>
+<simulator>
+    <algorithms>
+        <algorithm id="de" class="ec.EC">
+            
+            <!-- Diversity -->
+            <!--<addStoppingCondition class="stoppingcondition.MeasuredStoppingCondition" target="0.1">
+             	<predicate class="stoppingcondition.Minimum"/>
+                <measurement class="measurement.single.diversity.Diversity"/>
+            </addStoppingCondition>-->
+            
+            <!-- Generations -->
+            <addStoppingCondition class="stoppingcondition.MeasuredStoppingCondition" target="30"/>
+            
+            <initialisationStrategy class="algorithm.initialisation.ClonedPopulationInitialisationStrategy">
+            	<entityNumber value="50"/>
+                <entityType class="ec.Individual">
+                    <initialisationStrategy class="entity.initialisation.EXAFSInitialisationStrategy"/>
+                </entityType>
+            </initialisationStrategy>
+        </algorithm>
+        <algorithm id="gbest" class="pso.PSO">
+            
+            <!-- Diversity -->
+            <!--<addStoppingCondition class="stoppingcondition.MeasuredStoppingCondition" target="0.1">
+             	<predicate class="stoppingcondition.Minimum"/>
+                <measurement class="measurement.single.diversity.Diversity"/>
+            </addStoppingCondition>-->
+            
+            <!-- Generations -->
+            <addStoppingCondition class="stoppingcondition.MeasuredStoppingCondition" target="30"/>
+            
+            <initialisationStrategy class="algorithm.initialisation.ClonedPopulationInitialisationStrategy">
+            	<entityNumber value="50"/>
+                <entityType class="pso.particle.StandardParticle">
+                    <positionInitialisationStrategy class="entity.initialisation.EXAFSInitialisationStrategy"/>
+                </entityType>
+            </initialisationStrategy>
+        </algorithm>
+    </algorithms>
+    <problems>
+        <problem id="spherical" class="problem.FunctionOptimisationProblem" domain="R(-1000:1000)^237">
+            <function class="functions.continuous.unconstrained.IFEFFIT"/>
+        </problem>
+    </problems>
+    
+    <measurements id="fitness" class="simulator.MeasurementSuite" resolution="1">
+        <addMeasurement class="measurement.single.Fitness"/>
+        <addMeasurement class="measurement.single.Solution"/>
+    </measurements>
+    
+    <simulations>
+        <simulation samples="1">
+            <algorithm idref="de"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+	    <output format="TXT" file="data/exafs-de-1.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="de"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-de-2.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="de"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-de-3.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="de"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-de-4.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="de"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-de-5.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="de"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-de-6.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="de"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-de-7.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="de"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-de-8.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="de"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-de-9.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="de"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-de-10.txt" />
+        </simulation>
+
+        <simulation samples="1">
+            <algorithm idref="gbest"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+	    <output format="TXT" file="data/exafs-pso-1.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="gbest"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-pso-2.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="gbest"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-pso-3.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="gbest"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-pso-4.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="gbest"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-pso-5.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="gbest"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-pso-6.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="gbest"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-pso-7.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="gbest"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-pso-8.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="gbest"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-pso-9.txt" />
+        </simulation>
+        <simulation samples="1">
+            <algorithm idref="gbest"/>
+            <problem idref="spherical"/>
+            <measurements idref="fitness" />
+        <output format="TXT" file="data/exafs-pso-10.txt" />
+        </simulation>
+    </simulations>
+    
+</simulator>

@@ -1,0 +1,10 @@
+data
+target
+simulator.sh
+simulator.bat
+.ensime*
+private.sbt
+.settings
+.classpath
+.cache
+.project

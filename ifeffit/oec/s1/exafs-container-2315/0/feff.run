@@ -1,0 +1,233 @@
+ Feff 6L.02
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     4   14
+     4    0.22058    0.01971    0.19672
+    14    0.53502    0.03309    0.19512
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     4   15
+     4    0.22058    0.01971    0.19672
+    15    0.56690    0.11942    0.71814
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     4   16
+     4    0.22058    0.01971    0.19672
+    16    0.73571    0.36248    0.55751
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     4   28
+     4    0.22058    0.01971    0.19672
+    28    0.30084    0.49830    0.44243
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     4   31
+     4    0.22058    0.01971    0.19672
+    31    0.59309    0.39031    0.88212
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     4   39
+     4    0.22058    0.01971    0.19672
+    39    0.51174    0.45331    0.95757
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     4   41
+     4    0.22058    0.01971    0.19672
+    41    0.51215    0.17424    0.47157
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     4   50
+     4    0.22058    0.01971    0.19672
+    50    0.10215    0.23792    0.22892
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     4   55
+     4    0.22058    0.01971    0.19672
+    55    0.46857    0.40965    0.84910
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     9   15
+     9   -0.02108    0.60756    0.95896
+    15    0.56690    0.11942    0.71814
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     9   16
+     9   -0.02108    0.60756    0.95896
+    16    0.73571    0.36248    0.55751
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     9   17
+     9   -0.02108    0.60756    0.95896
+    17    0.64285    0.77320    0.56204
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     9   28
+     9   -0.02108    0.60756    0.95896
+    28    0.30084    0.49830    0.44243
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     9   31
+     9   -0.02108    0.60756    0.95896
+    31    0.59309    0.39031    0.88212
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     9   39
+     9   -0.02108    0.60756    0.95896
+    39    0.51174    0.45331    0.95757
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     9   41
+     9   -0.02108    0.60756    0.95896
+    41    0.51215    0.17424    0.47157
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     9   50
+     9   -0.02108    0.60756    0.95896
+    50    0.10215    0.23792    0.22892
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     9   55
+     9   -0.02108    0.60756    0.95896
+    55    0.46857    0.40965    0.84910
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms     9   65
+     9   -0.02108    0.60756    0.95896
+    65    0.63614    0.76916    0.83502
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    12   13
+    12    9.18258   -8.30907    8.87570
+    13    8.50471   -8.00287    9.20786
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    14   15
+    14    0.53502    0.03309    0.19512
+    15    0.56690    0.11942    0.71814
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    14   16
+    14    0.53502    0.03309    0.19512
+    16    0.73571    0.36248    0.55751
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    14   17
+    14    0.53502    0.03309    0.19512
+    17    0.64285    0.77320    0.56204
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    14   28
+    14    0.53502    0.03309    0.19512
+    28    0.30084    0.49830    0.44243
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    14   31
+    14    0.53502    0.03309    0.19512
+    31    0.59309    0.39031    0.88212
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    14   32
+    14    0.53502    0.03309    0.19512
+    32    0.55618    0.90243    0.28041
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    14   39
+    14    0.53502    0.03309    0.19512
+    39    0.51174    0.45331    0.95757
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    14   41
+    14    0.53502    0.03309    0.19512
+    41    0.51215    0.17424    0.47157
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    14   50
+    14    0.53502    0.03309    0.19512
+    50    0.10215    0.23792    0.22892
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    14   55
+    14    0.53502    0.03309    0.19512
+    55    0.46857    0.40965    0.84910
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    15   16
+    15    0.56690    0.11942    0.71814
+    16    0.73571    0.36248    0.55751
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    15   17
+    15    0.56690    0.11942    0.71814
+    17    0.64285    0.77320    0.56204
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    15   28
+    15    0.56690    0.11942    0.71814
+    28    0.30084    0.49830    0.44243
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    15   31
+    15    0.56690    0.11942    0.71814
+    31    0.59309    0.39031    0.88212
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    15   32
+    15    0.56690    0.11942    0.71814
+    32    0.55618    0.90243    0.28041
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    15   39
+    15    0.56690    0.11942    0.71814
+    39    0.51174    0.45331    0.95757
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    15   41
+    15    0.56690    0.11942    0.71814
+    41    0.51215    0.17424    0.47157
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    15   50
+    15    0.56690    0.11942    0.71814
+    50    0.10215    0.23792    0.22892
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    15   55
+    15    0.56690    0.11942    0.71814
+    55    0.46857    0.40965    0.84910
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    15   65
+    15    0.56690    0.11942    0.71814
+    65    0.63614    0.76916    0.83502
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    16   17
+    16    0.73571    0.36248    0.55751
+    17    0.64285    0.77320    0.56204
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    16   28
+    16    0.73571    0.36248    0.55751
+    28    0.30084    0.49830    0.44243
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    16   31
+    16    0.73571    0.36248    0.55751
+    31    0.59309    0.39031    0.88212
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    16   32
+    16    0.73571    0.36248    0.55751
+    32    0.55618    0.90243    0.28041
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    16   39
+    16    0.73571    0.36248    0.55751
+    39    0.51174    0.45331    0.95757
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    16   41
+    16    0.73571    0.36248    0.55751
+    41    0.51215    0.17424    0.47157
+  Run continues...
+  WARNING:  TWO ATOMS VERY CLOSE TOGETHER.  CHECK INPUT.
+   atoms    16   50
