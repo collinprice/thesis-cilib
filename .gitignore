@@ -8,3 +8,5 @@ private.sbt
 .classpath
 .cache
 .project
+ifeffit/oec/s1/energy-container-*
+ifeffit/oec/s1/exafs-container-*

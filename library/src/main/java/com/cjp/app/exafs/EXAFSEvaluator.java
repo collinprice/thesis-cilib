@@ -25,14 +25,19 @@ public class EXAFSEvaluator {
 	private EXAFSEvaluator(String configFile) {
 		
 		MapParser config = new MapParser(configFile);
-		
+//		System.out.println("pdb");
 		this.pdbHelper = new PDBHelper(config.getString("ifeffit-dir")+"/"+config.getString("amber"), 
 										config.getString("ifeffit-dir")+"/"+config.getString("pdb-file"), 
 										config.getList_String("atom-filter"));
-		this.ifeffitHelper = new IFEFFITHelper(config, pdbHelper.getEXAFSAtoms());
-		this.forceFieldHelper = new ForceFieldHelper(config);
 		
+//		System.out.println("ifeffit");
+		this.ifeffitHelper = new IFEFFITHelper(config, pdbHelper.getEXAFSAtoms());
+//		System.out.println("ff");
+		this.forceFieldHelper = new ForceFieldHelper(config);
+//		
+//		System.out.println("before xyz");
 		this.xyzFiles = XYZReader.readDirectory(config.getString("xyz-dir"));
+//		System.out.println("after xyz");
 		this.xyzIndexCounter = 0;
 		this.problemDimension = this.xyzFiles.get(0).size() * 3;
 	}
@@ -66,6 +71,8 @@ public class EXAFSEvaluator {
 	public double evaluateIFEFFIT(List<Double> input) {
 		
 		pdbHelper.setEXAFSAtomsFromList(input);
+		
+//		System.out.println(pdbHelper.getEXAFSAtoms().size());
 		ifeffitHelper.evaluate(pdbHelper.getEXAFSAtoms());
 		
 		return ifeffitHelper.getRMSD();
@@ -74,6 +81,9 @@ public class EXAFSEvaluator {
 	public double evaluateForceFields(List<Double> input) {
 		
 		pdbHelper.setAllAtomsFromList(input);
+		
+//		System.out.println(pdbHelper.getAtoms().size());
+//		System.out.println("um..");
 		forceFieldHelper.evaluate(pdbHelper.getAtoms());
 		
 		return forceFieldHelper.getEnergy();

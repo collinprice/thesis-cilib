@@ -35,15 +35,20 @@ InitialisationStrategy<E> {
 	@Override
 	public void initialise(Property key, E entity) {
 		
+//		System.out.println("Initializing Population.");
 		Type type = entity.get(key);
 		Vector vector = (Vector) type;
         
+//		System.out.println("Before");
         List<Double> atomPositionList = EXAFSEvaluator.sharedInstance().getNextAtomList();
+//        System.out.println("After");
         
-        Preconditions.checkArgument(atomPositionList.size() == vector.size(), "EXAFS Dimension needs to be " + atomPositionList.size());
+//        Preconditions.checkArgument(atomPositionList.size() == vector.size(), "EXAFS Dimension needs to be " + atomPositionList.size());
         
         for (int i = 0; i < vector.size(); i++) {
-        	vector.setReal(i, atomPositionList.get(i) + random.getRandomNumber());
+        	
+//        	vector.setReal(i, atomPositionList.get(i) + random.getRandomNumber());
+        	vector.setReal(i, atomPositionList.get(i)); // Don't need to randomize due to getNextAtomList() ^^
         }
 
 	}

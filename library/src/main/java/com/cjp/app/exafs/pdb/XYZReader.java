@@ -15,7 +15,7 @@ import javax.swing.text.AbstractDocument.BranchElement;
 public class XYZReader {
 	
 	public static List<List<Point3D>> readDirectory(String directory_path, final String extension) {
-		
+//		System.out.println("read dir");
 		File directory = new File(directory_path);
 		
 		if (!directory.isDirectory()) {
@@ -31,11 +31,12 @@ public class XYZReader {
 		    }
 		});
 		
+//		System.out.println("Found " + xyzFiles.length + " xyz files.");
 		for (File filename : xyzFiles) {
 			pointLists.add(XYZReader.readFile(filename));
 		}
 		
-		System.out.println(pointLists.size());
+//		System.out.println(pointLists.size());
 		
 		return pointLists;
 	}

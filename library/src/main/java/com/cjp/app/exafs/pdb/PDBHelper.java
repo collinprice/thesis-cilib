@@ -55,9 +55,10 @@ public class PDBHelper {
 			prmtopFile.close();
 			
 			BufferedReader pdbFile = new BufferedReader(new FileReader(pdb));
-//			pdbFile.readLine(); // Skip line.
 			
 			while((line = pdbFile.readLine()) != null) {
+				
+				if (!line.startsWith("ATOM")) continue;
 				
 				StringTokenizer tokenizer = new StringTokenizer(line);
 				if (tokenizer.countTokens() == 1) break;
@@ -68,12 +69,18 @@ public class PDBHelper {
 				tokenizer.nextToken();
 				tokenizer.nextToken();
 				tokenizer.nextToken();
-//				tokenizer.nextToken();
+				tokenizer.nextToken();
 				
 				Point3D point = new Point3D();
 				point.x = Double.parseDouble(tokenizer.nextToken());
 				point.y = Double.parseDouble(tokenizer.nextToken());
 				point.z = Double.parseDouble(tokenizer.nextToken());
+				
+//				double isEXAFS = Double.parseDouble(tokenizer.nextToken());
+//				
+//				if (isEXAFS == 1) {
+//					System.out.println("FOUND EXAFS ----------------------------------------------");
+//				}
 				
 				pointList.add(new Atom(point, massToSymbol(massList.get(pointList.size())), Double.parseDouble(tokenizer.nextToken()) == 1));
 			}

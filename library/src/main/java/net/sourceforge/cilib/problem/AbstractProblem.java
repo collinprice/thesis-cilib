@@ -84,6 +84,7 @@ public abstract class AbstractProblem implements Problem {
 
     @Override
     public void setDomain(String domain) {
+    	System.out.println(domain);
         this.domainRegistry.setDomainString(domain);
     }
 

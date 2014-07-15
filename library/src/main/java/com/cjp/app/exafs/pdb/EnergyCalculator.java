@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.StringTokenizer;
@@ -23,7 +24,7 @@ public class EnergyCalculator {
 		
 		PrintWriter writer;
 		try {
-			writer = new PrintWriter(tempDirectory + "/" + RUN_SCRIPT, "UTF-8");
+			writer = new PrintWriter(tempDirectory + "/" + RUN_SCRIPT);
 			
 			writer.println("cd " + tempDirectory);
 			writer.println(vmdPath + " -dispdev text -e " + VMD_SCRIPT + " > /dev/null");
@@ -38,14 +39,23 @@ public class EnergyCalculator {
 			writer.println("quit");
 			writer.close();
 			
-		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public double calculateEnergy() {
 		
+		String command = "bash " + this.directory + "/" + RUN_SCRIPT;
+
 		try {
+			Process pr = Runtime.getRuntime().exec(command);
+			
+			InputStreamReader reader = new InputStreamReader(pr.getInputStream());
+			while(reader.read() != -1){}
+			
+			pr.waitFor();
+			
 			BufferedReader br = new BufferedReader(new FileReader(this.directory + "/" + VMD_OUTPUT));
 			br.readLine();
 			
@@ -62,6 +72,9 @@ public class EnergyCalculator {
 		
 			return Double.parseDouble(energy);
 		} catch (IOException e) {
+			e.printStackTrace();
+			return -1;
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 			return -1;
 		}

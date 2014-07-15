@@ -13,7 +13,7 @@ public class IFEFFIT extends ContinuousFunction {
 
 	@Override
     public Double f(Vector input) {
-        
+
 		EXAFSEvaluator exafsEvaluator = EXAFSEvaluator.sharedInstance();
 		Preconditions.checkArgument(exafsEvaluator.getDimension() == input.size(), "EXAFS Dimension needs to be " + exafsEvaluator.getDimension());
 		
@@ -21,7 +21,7 @@ public class IFEFFIT extends ContinuousFunction {
 		for (int i = 0; i < input.size(); i++) {
 			inputCoords.add(input.doubleValueOf(i));
 		}
-		
+
 		double fitness = exafsEvaluator.evaluateIFEFFIT(inputCoords);
 		System.out.println("EXAFS: " + fitness);
 		

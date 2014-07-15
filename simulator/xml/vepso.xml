@@ -86,31 +86,43 @@
     </algorithms>
 
     <problems>
+    	<problem id="exafs" s="3807" class="functions.continuous.moo.exafs.FullExafsProblem"/>
+    	
+    	<!--
         <problem id="ZDT1" class="functions.continuous.moo.zdt.ZDT1"/>
-	<problem id="ZDT2" class="functions.continuous.moo.zdt.ZDT2"/>
-	<problem id="ZDT3" class="functions.continuous.moo.zdt.ZDT3"/>
-	<problem id="ZDT4" class="functions.continuous.moo.zdt.ZDT4"/>
-	<problem id="ZDT6" class="functions.continuous.moo.zdt.ZDT6"/>
+		<problem id="ZDT2" class="functions.continuous.moo.zdt.ZDT2"/>
+		<problem id="ZDT3" class="functions.continuous.moo.zdt.ZDT3"/>
+		<problem id="ZDT4" class="functions.continuous.moo.zdt.ZDT4"/>
+		<problem id="ZDT6" class="functions.continuous.moo.zdt.ZDT6"/>
 
         <problem id="WFG1" m="3" l="20" class="functions.continuous.moo.wfg.WFG1"/>
-	<problem id="WFG2" m="3" l="20" class="functions.continuous.moo.wfg.WFG2"/>
-	<problem id="WFG3" m="3" l="20" class="functions.continuous.moo.wfg.WFG3"/>
-	<problem id="WFG4" m="3" l="20" class="functions.continuous.moo.wfg.WFG4"/>
-	<problem id="WFG5" m="3" l="20" class="functions.continuous.moo.wfg.WFG5"/>
+		<problem id="WFG2" m="3" l="20" class="functions.continuous.moo.wfg.WFG2"/>
+		<problem id="WFG3" m="3" l="20" class="functions.continuous.moo.wfg.WFG3"/>
+		<problem id="WFG4" m="3" l="20" class="functions.continuous.moo.wfg.WFG4"/>
+		<problem id="WFG5" m="3" l="20" class="functions.continuous.moo.wfg.WFG5"/>
         <problem id="WFG6" m="3" l="20" class="functions.continuous.moo.wfg.WFG6"/>
         <problem id="WFG7" m="3" l="20" class="functions.continuous.moo.wfg.WFG7"/>
         <problem id="WFG8" m="3" l="20" class="functions.continuous.moo.wfg.WFG8"/>
         <problem id="WFG9" m="3" l="20" class="functions.continuous.moo.wfg.WFG9"/>
+        -->
     </problems>
 
     <measurements id="moo-quality" class="simulator.MeasurementSuite" resolution="10">
         <addMeasurement class="measurement.single.moo.NumberOfSolutions"/>
         <addMeasurement class="measurement.single.moo.SolutionDistribution"/>
-	<addMeasurement class="measurement.single.moo.ParetoFrontExtent"/>
+		<addMeasurement class="measurement.single.moo.ParetoFrontExtent"/>
         <addMeasurement class="measurement.multiple.moo.ParetoOptimalFront"/>
     </measurements>
 
     <simulations>
+        <simulation samples="1">
+            <algorithm idref="vepso-standard-bi-swarm"/>
+            <problem idref="exafs"/>
+            <measurements idref="moo-quality"/>
+	    <output format="TXT" file="data/vepso-standard-exafs.txt"/>
+        </simulation>
+        
+        <!--
         <simulation samples="1">
             <algorithm idref="vepso-standard-bi-swarm"/>
             <problem idref="ZDT1"/>
@@ -283,5 +295,6 @@
             <measurements idref="moo-quality"/>
 	    <output format="TXT" file="data/vepso-random-WFG9.txt"/>
         </simulation>
+        -->
     </simulations>
 </simulator>

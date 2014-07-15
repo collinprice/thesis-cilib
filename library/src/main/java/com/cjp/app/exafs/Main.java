@@ -3,6 +3,7 @@ package com.cjp.app.exafs;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import com.cjp.app.exafs.pdb.XYZConverter;
 import com.cjp.app.exafs.pdb.XYZReader;
 
 //import java.io.File;
@@ -36,11 +37,14 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Path currentRelativePath = Paths.get("");
-		String s = currentRelativePath.toAbsolutePath().toString();
-		System.out.println("Current relative path is: " + s);
+//		Path currentRelativePath = Paths.get("");
+//		String s = currentRelativePath.toAbsolutePath().toString();
+//		System.out.println("Current relative path is: " + s);
+//		
+//		XYZReader.readDirectory("results");
 		
-		XYZReader.readDirectory("results");
+		XYZConverter xyzConverter = new XYZConverter("xyz-to-pdb", "prmtop-sphere", "relaxed-H.pdb");
+		xyzConverter.convert("results/1.xyz", "out.pdb");
 		
 //		DCDReader dcdReader = new DCDReader(new File(config.getString("ifeffit-dir"), config.getString("dcd")));
 		

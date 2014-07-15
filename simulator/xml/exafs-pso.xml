@@ -23,25 +23,40 @@
                     <positionInitialisationStrategy class="entity.initialisation.EXAFSInitialisationStrategy"/>
                 </entityType>
             </initialisationStrategy>
+            
+            <objectiveAssignmentStrategy class="moo.criterion.objectiveassignmentstrategies.SequentialObjectiveAssignmentStrategy"/>
+            <!--objectiveAssignmentStrategy class="moo.criterion.objectiveassignmentstrategies.SequentialObjectiveAssignmentStrategy"/>-->
         </algorithm>
     </algorithms>
     <problems>
-        <problem id="spherical" class="problem.FunctionOptimisationProblem" domain="R(-1000:1000)^237">
+    	<problem id="exafs" s="3807" class="functions.continuous.moo.exafs.FullExafsProblem" />
+    	
+        <!--<problem id="spherical" class="problem.MOOptimisationProblem" domain="R(-1000:1000)^3807">
+            <function class="functions.continuous.unconstrained.ForceFields"/>
             <function class="functions.continuous.unconstrained.IFEFFIT"/>
-        </problem>
+        </problem>-->
+        <!--<problem id="spherical" class="problem.FunctionOptimisationProblem" domain="R(-1000:1000)^3807">
+            <function class="functions.continuous.unconstrained.ForceFields"/>
+            <function class="functions.continuous.unconstrained.IFEFFIT"/>
+        </problem>-->
     </problems>
     
     <measurements id="fitness" class="simulator.MeasurementSuite" resolution="1">
-        <addMeasurement class="measurement.single.Fitness"/>
-        <addMeasurement class="measurement.single.Solution"/>
+        <!--<addMeasurement class="measurement.single.Fitness"/>
+        <addMeasurement class="measurement.single.Solution"/>-->
+        
+        <addMeasurement class="measurement.single.moo.NumberOfSolutions"/>
+        <addMeasurement class="measurement.single.moo.SolutionDistribution"/>
+		<addMeasurement class="measurement.single.moo.ParetoFrontExtent"/>
+        <addMeasurement class="measurement.multiple.moo.ParetoOptimalFront"/>
     </measurements>
     
     <simulations>
         <simulation samples="1">
             <algorithm idref="gbest"/>
-            <problem idref="spherical"/>
+            <problem idref="exafs"/>
             <measurements idref="fitness" />
-	    <output format="TXT" file="data/exafs-pso-large.txt" />
+	    	<output format="TXT" file="data/exafs-pso-moo.txt" />
         </simulation>
     </simulations>
     
